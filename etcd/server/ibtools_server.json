@@ -1,0 +1,40 @@
+{
+    "Database": {
+      "Type": "postgres",
+      "Host": "XXXXXXXX.pg.rds.aliyuncs.com",
+      "Port": 1921,
+      "User": "XXXXX",
+      "Password": "XXXXXXXXXX",
+      "DatabaseName": "XXXXXXX",
+      "MaxIdleConns": 200,
+      "MaxOpenConns": 200
+    },
+    "Oauth": {
+      "AccessTokenLifetime": 3600,
+      "RefreshTokenLifetime": 1209600,
+      "AuthCodeLifetime": 3600,
+      "InviteCodeLifetime": 259200
+    },
+    "Redis": {
+      "Addr":  "XXXXXXX.redis.rds.aliyuncs.com:6379",
+      "Password": "XXXXXX",
+      "DB": 0,
+      "Expiration": 60
+    },
+    "Aliyun":{
+      "RegionId":"cn-hangzhou",
+      "AccessKeyId":"XXXXXX",
+      "AccessKeySecret":"XXXXXXX",
+      "OssEndPoint":"http://oss-cn-hangzhou.aliyuncs.com",
+      "OssRoleARN":"XXXXXX",
+      "OssPermissionDurationSeconds":"3600",
+      "BucketName":"XXXX",
+      "ProjectRootPath":"projects/",
+      "OssAccelerateDomain":"XXXXXX.oss-accelerate.aliyuncs.com",
+      "OssAccelerateEndPoint":"oss-accelerate.aliyuncs.com"
+    },
+    "IsDevelopment": false,
+    "HasDBLog": true,
+    "LogLocation":"/var/log/ibtools",
+    "SwaggerURL":"https://apidoc.XXXXXX.vip:8866/swagger/doc.json"
+  }

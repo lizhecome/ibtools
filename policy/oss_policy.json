@@ -1,0 +1,13 @@
+{
+    "Statement": [
+        {
+            "Action": [
+                "oss:PutObject",
+                "oss:GetObject"
+            ],
+            "Effect": "Allow",
+            "Resource": "acs:oss:*:*:ibtools/projects/{{path}}"
+        }
+    ],
+    "Version": "1"
+}
