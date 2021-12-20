@@ -1,0 +1,1252 @@
+{
+    "schemes": [
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "描述了server与client的交互接口",
+        "title": "IBtools Server API document",
+        "termsOfService": "https://www.XXX.com",
+        "contact": {
+            "name": "lizhe",
+            "url": "https://www.XXX.com",
+            "email": "XXXXX@qq.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "apidoc.XX.com",
+    "basePath": "/v1",
+    "paths": {
+        "/oauth/checkphonenumberavailable": {
+            "post": {
+                "description": "检查电话号码是否可用",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "检查电话号码是否可用",
+                "operationId": "checkphonenumberavailableHandler",
+                "parameters": [
+                    {
+                        "description": "5555555555",
+                        "name": "phone",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "601": {
+                        "description": "{\"title\":\"Cell phone number is not correct\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/createinvitebyphone": {
+            "post": {
+                "description": "通过手机号邀请",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "通过手机号邀请",
+                "operationId": "createInviteByPhone",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "projectcode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "phone",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "项目组长",
+                        "name": "role",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "invitecode",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "614": {
+                        "description": "{\"title\":\"Param is Null\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "625": {
+                        "description": "{\"title\":\"生成邀请码失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/createinvitebyusercode": {
+            "post": {
+                "description": "通过用户code邀请",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "通过用户code邀请",
+                "operationId": "createInviteByUserCodeHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "projectcode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "usercode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "role",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "invitecode",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "614": {
+                        "description": "{\"title\":\"Param is Null\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "625": {
+                        "description": "{\"title\":\"生成邀请码失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/createinvitecode": {
+            "post": {
+                "description": "生成邀请码",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "生成邀请码",
+                "operationId": "createInviteCodeHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "projectcode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "项目组长",
+                        "name": "role",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "invitecode",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "614": {
+                        "description": "{\"title\":\"Param is Null\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "625": {
+                        "description": "{\"title\":\"生成邀请码失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/forgetpassword": {
+            "post": {
+                "description": "忘记密码",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "忘记密码",
+                "operationId": "forgetpasswordHandler",
+                "parameters": [
+                    {
+                        "description": "5555555555",
+                        "name": "phone",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "6666",
+                        "name": "code",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "111111",
+                        "name": "password",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "601": {
+                        "description": "{\"title\":\"Cell phone number is not correct\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "608": {
+                        "description": "{\"title\":\"User not Found\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "609": {
+                        "description": "{\"title\":\"Set Password Failed\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/getInviteListFromMe": {
+            "post": {
+                "description": "获取我发出的邀请列表",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "获取我发出的邀请列表",
+                "operationId": "getInviteListFromMeHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "614": {
+                        "description": "{\"title\":\"Param is Null\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "631": {
+                        "description": "{\"title\":\"获取我发出的邀请列表失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/getInviteListToMe": {
+            "post": {
+                "description": "获取邀请我的列表",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "获取邀请我的列表",
+                "operationId": "getInviteListToMeHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "614": {
+                        "description": "{\"title\":\"Param is Null\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "630": {
+                        "description": "{\"title\":\"获取邀请我的列表失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/login": {
+            "post": {
+                "description": "通过用户名及密码进行用户登陆",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "用户登陆",
+                "operationId": "loginHandler",
+                "parameters": [
+                    {
+                        "description": "186XXXXXXXX",
+                        "name": "phone",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "123456",
+                        "name": "password",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"ExpiresAt\": \"6019-11-14 08:29:48.446901 +0000 UTC\",\"accesstoken\": \"1e0e848b-38d3-4336-845e-5b09d4065608\",\"message\": \"ok\",\"refreshtoken\": \"12aa1a3f-c0d5-4934-a73b-88af2c02fa5d\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "606": {
+                        "description": "{\"title\":\"Login Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/processInvite": {
+            "post": {
+                "description": "处理邀请项目",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "处理邀请项目",
+                "operationId": "processInviteHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "invitecode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "0:拒绝，1:接受",
+                        "name": "accept",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "614": {
+                        "description": "{\"title\":\"Param is Null\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "629": {
+                        "description": "{\"title\":\"处理邀请项目失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/refreshtoken": {
+            "post": {
+                "description": "使用refreshtoken刷新accesstoken",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "刷新accesstoken",
+                "operationId": "refreshtokenHandler",
+                "parameters": [
+                    {
+                        "description": "12aa1a3f-c0d5-4934-a73b-88af2c02fa5d",
+                        "name": "refresh_token",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"ExpiresAt\": \"6019-11-14 08:29:48.446901 +0000 UTC\",\"accesstoken\": \"1e0e848b-38d3-4336-845e-5b09d4065608\",\"message\": \"ok\",\"refreshtoken\": \"12aa1a3f-c0d5-4934-a73b-88af2c02fa5d\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "606": {
+                        "description": "{\"title\":\"Login Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "610": {
+                        "description": "{\"title\":\"Refresh token is not correct\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/register": {
+            "post": {
+                "description": "通过用户名、昵称、角色及密码进行用户注册",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "用户注册",
+                "operationId": "registerHandler",
+                "parameters": [
+                    {
+                        "description": "李喆",
+                        "name": "name",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "123456",
+                        "name": "password",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "5555555555",
+                        "name": "phone",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "XXX证券公司",
+                        "name": "cpmpany",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "高级经理",
+                        "name": "title",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "abc@a.com",
+                        "name": "email",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "6666",
+                        "name": "code",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "h7jgyg6fsHe5",
+                        "name": "invitationcode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "605": {
+                        "description": "{\"title\":\"Create User Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/oauth/sendverificationcode": {
+            "post": {
+                "description": "根据手机号发送验证码短信",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "oauth"
+                ],
+                "summary": "发送短信验证码",
+                "operationId": "sendverificationcodeHandler",
+                "parameters": [
+                    {
+                        "description": "5555555555",
+                        "name": "phone",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"message\": \"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "607": {
+                        "description": "{\"title\":\"Send Phone Number ValidateMessage Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/createDDItem": {
+            "post": {
+                "description": "创建条目",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "创建条目",
+                "operationId": "createDDItemHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "21-1-2",
+                        "name": "title",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "21-1-2",
+                        "name": "filePointer",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{projects}}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "612": {
+                        "description": "{\"AccessToken is nul\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "613": {
+                        "description": "{\"AccessToken Auth Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "626": {
+                        "description": "{\"创建条目失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/createDDModel": {
+            "post": {
+                "description": "创建一个项目的尽调模块",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "创建一个项目的尽调模块",
+                "operationId": "createDDModelHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "projectcode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "历史沿革",
+                        "name": "title",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{200}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "612": {
+                        "description": "{\"AccessToken is nul\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "613": {
+                        "description": "{\"AccessToken Auth Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "625": {
+                        "description": "{\"创建尽调模块失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/createDDModelByTemplate": {
+            "post": {
+                "description": "根据模板创建尽调模块",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "根据模板创建尽调模块",
+                "operationId": "createDDModelByTemplateHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "modeltemplatecode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "projectcode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{projects}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "612": {
+                        "description": "{\"AccessToken is nul\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "613": {
+                        "description": "{\"AccessToken Auth Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "625": {
+                        "description": "{\"创建尽调模块失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/createprojectbytemplate": {
+            "post": {
+                "description": "通过坐标查找附近的地点",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "根据模板编号创建项目",
+                "operationId": "createPrjByTemplateHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "XX公司IPO项目",
+                        "name": "title",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "项目组长（可以填四项：发行人员工、发行人负责人、项目组成员、项目组长）",
+                        "name": "role",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "templatecode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{project}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "612": {
+                        "description": "{\"AccessToken is nul\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "613": {
+                        "description": "{\"AccessToken Auth Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "614": {
+                        "description": "{\"Param is Null\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "621": {
+                        "description": "{\"创建项目失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/getalltemplates": {
+            "post": {
+                "description": "获取所有模板",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "获取所有模板",
+                "operationId": "getAllTemplateHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{projects}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "612": {
+                        "description": "{\"AccessToken is nul\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "613": {
+                        "description": "{\"AccessToken Auth Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "622": {
+                        "description": "{\"获取模板失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/getfullproject": {
+            "post": {
+                "description": "获得一个项目的全部内容",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "获得一个项目的全部内容",
+                "operationId": "getFullProjectHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "projectcode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{projects}}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "612": {
+                        "description": "{\"AccessToken is nul\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "613": {
+                        "description": "{\"AccessToken Auth Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "624": {
+                        "description": "{\"获取项目失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/getmyprojects": {
+            "post": {
+                "description": "获取我的所有项目",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "获取我的所有项目",
+                "operationId": "getMyProjectsHandler",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{projects}}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "612": {
+                        "description": "{\"AccessToken is nul\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "613": {
+                        "description": "{\"AccessToken Auth Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "624": {
+                        "description": "{\"获取项目失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/project/getprojectfilepermission": {
+            "post": {
+                "description": "获取项目文件的读写权限",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "获取项目文件的读写权限",
+                "operationId": "getProjectFilePermission",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "d29788b2-a482-4f1d-9434-a84a9cfbc01d",
+                        "name": "at",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "3cb6f508-ece8-43ae-b025-bdefd9b807a9",
+                        "name": "projectcode",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{token}}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "612": {
+                        "description": "{\"AccessToken is nul\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "613": {
+                        "description": "{\"AccessToken Auth Failed\",\"message\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "623": {
+                        "description": "{\"获取权限失败\": \"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

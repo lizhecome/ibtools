@@ -20,6 +20,7 @@ require (
 	github.com/go-delve/delve v1.3.2 // indirect
 	github.com/go-enry/go-enry/v2 v2.8.0 // indirect
 	github.com/go-openapi/jsonreference v0.19.6 // indirect
+	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/go-openapi/swag v0.19.15 // indirect
 	github.com/go-redis/redis v6.15.8+incompatible
 	github.com/google/uuid v1.3.0
@@ -35,6 +36,7 @@ require (
 	github.com/mdempsky/gocode v0.0.0-20200405233807-4acdcbdea79d // indirect
 	github.com/patrickmn/go-cache v0.0.0-20180527043350-9f6ff22cfff8
 	github.com/phyber/negroni-gzip v0.0.0-20170323132914-8118ae63850f
+	github.com/ramya-rao-a/go-outline v0.0.0-20210608161538-9736a4bde949 // indirect
 	github.com/rogpeppe/godef v1.1.2 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.4.2
@@ -45,16 +47,16 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/swaggo/files v0.0.0-20190704085106-630677cd5c14
 	github.com/swaggo/gin-swagger v1.3.2
-	github.com/swaggo/swag v1.7.3
+	github.com/swaggo/swag v1.7.6
 	github.com/ugorji/go v1.1.7 // indirect
 	github.com/urfave/cli v1.22.2
 	github.com/urfave/negroni v0.0.0-20180105164225-ff85fb036d90
 	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
-	golang.org/x/net v0.0.0-20210813160813-60bc85c4be6d
-	golang.org/x/sys v0.0.0-20211210111614-af8b64212486 // indirect
+	golang.org/x/net v0.0.0-20211216030914-fe4d6282115f
+	golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e // indirect
 	golang.org/x/text v0.3.7 // indirect
-	golang.org/x/tools v0.1.5 // indirect
+	golang.org/x/tools v0.1.8 // indirect
 	golang.org/x/tools/gopls v0.4.3 // indirect
 	googlemaps.github.io/maps v0.0.0-20191014172202-ce2e58e026c5
 	gopkg.in/tylerb/graceful.v1 v1.2.15
